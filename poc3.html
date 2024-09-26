@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoC de Media Queries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #004d99;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #003366;
+            padding: 15px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .main {
+            flex: 2;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #e6e6e6;
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+        .columns {
+            column-count: 3;
+            column-gap: 20px;
+            padding: 20px 0;
+        }
+
+        .columns p {
+            margin-bottom: 1.5rem;
+        }
+
+        @media print {
+            header, nav, .gallery, .sidebar {
+                display: none;
+            }
+
+            body {
+                font-size: 12pt;
+                color: black;
+            }
+
+            .columns {
+                column-count: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .columns {
+                column-count: 1;
+            }
+
+            .sidebar {
+                margin: 0;
+                margin-top: 20px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .columns {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .gallery {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .columns {
+                column-count: 3;
+            }
+        }
+
+        @media (orientation: landscape) {
+            body {
+                background-color: #f0f0f0;
+            }
+
+            nav ul li {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (orientation: portrait) {
+            body {
+                background-color: #ffffff;
+            }
+
+            nav ul li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Prova de Conceito de Media Queries</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Galeria</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <section class="main">
+                <h2>Galeria de Imagens</h2>
+                <div class="gallery">
+                    <img src="https://via.placeholder.com/300" alt="Imagem 1">
+                    <img src="https://via.placeholder.com/300" alt="Imagem 2">
+                    <img src="https://via.placeholder.com/300" alt="Imagem 3">
+                    <img src="https://via.placeholder.com/300" alt="Imagem 4">
+                    <img src="https://via.placeholder.com/300" alt="Imagem 5">
+                    <img src="https://via.placeholder.com/300" alt="Imagem 6">
+                    <img src="https://via.placeholder.com/300" alt="Imagem 7">
+                    <img src="https://via.placeholder.com/300" alt="Imagem 8">
+                </div>
+
+                <h2>Texto em Colunas</h2>
+                <div class="columns">
+                    <p>a</p>
+                    <p>a</p>
+                    <p>a</p>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <h2>Barra Lateral</h2>
+                <p>a</p>
+            </aside>
+        </div>
+    </div>
+
+</body>
+</html>
